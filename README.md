@@ -23,7 +23,8 @@ This repository enables keepers of the Keep3r Network to execute Sidechain Oracl
 5. Try out the scripts
 
 ```
-  yarn start:data-feed
+  yarn start:data-broadcast
+  yarn start:data-fetch
 ```
 
 ## Run in production
@@ -37,7 +38,8 @@ This repository enables keepers of the Keep3r Network to execute Sidechain Oracl
 2. Run the job directly from javascript (using [PM2](https://github.com/Unitech/pm2) is highly recommended)
 
 ```
-  node dist/data-feed-job.js
+  node dist/data-broadcast.js
+  node dist/data-fetch.js
 ```
 
 ## Keeper Requirements

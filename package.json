@@ -17,9 +17,12 @@
   "private": true,
   "scripts": {
     "postinstall": "eth-sdk",
-    "start:data-feed": "ts-node src/data-feed-job.ts",
+    "start:data-fetch": "ts-node src/data-fetch.ts",
+    "start:data-broadcast": "ts-node src/data-broadcast.ts",
     "build": "eth-sdk && tsc",
-    "prod:data-feed": "node dist/src/data-feed-job.js",
+    "prod:data-time-fetch": "node dist/data-time-fetch.js",
+    "prod:data-twap-fetch": "node dist/data-twap-fetch.js",
+    "prod:data-broadcast": "node dist/data-broadcast.js",
     "lint": "xo",
     "lint:fix": "xo --fix"
   },

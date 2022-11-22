@@ -1,4 +1,4 @@
-import {getGoerliSdk} from '@dethcrypto/eth-sdk-client';
+import {getMainnetSdk} from '@dethcrypto/eth-sdk-client';
 import type {TransactionRequest} from '@ethersproject/abstract-provider';
 import type {Contract} from 'ethers';
 import {providers, Wallet} from 'ethers';
@@ -23,7 +23,7 @@ dotenv.config();
 const provider = new providers.WebSocketProvider(getEnvVariable('RPC_WSS_URI'));
 const txSigner = new Wallet(getEnvVariable('TX_SIGNER_PRIVATE_KEY'), provider);
 
-const {dataFeedJob: job, dataFeed} = getGoerliSdk(txSigner);
+const {dataFeedJob: job, dataFeed} = getMainnetSdk(txSigner);
 
 // Flag to track if there's a transaction in progress. Pool salt => status
 const txInProgress: Record<string, boolean> = {};

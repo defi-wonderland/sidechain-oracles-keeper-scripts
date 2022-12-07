@@ -1,5 +1,5 @@
-// Goerli
-export const CHAIN_ID = 5;
+// Ethereum
+export const CHAIN_ID = 1;
 
 // Size of our batch of bundles
 export const BURST_SIZE = 3;
@@ -14,6 +14,6 @@ export const PAST_BLOCKS = 500_000;
 export const PRIORITY_FEE = 2;
 
 // Flashbots RPC. Taken from https://docs.flashbots.net
-export const FLASHBOTS_RPC = 'https://relay-goerli.flashbots.net';
+export const FLASHBOTS_RPC = 'https://relay.flashbots.net';
 
-export const SUPPORTED_CHAIN_IDS = [420];
+export const SUPPORTED_CHAIN_IDS = [10, 137];

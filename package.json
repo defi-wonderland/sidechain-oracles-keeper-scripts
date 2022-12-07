@@ -1,6 +1,6 @@
 {
   "name": "@defi-wonderland/sidechain-oracle-keeper-scripts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Sidechain Oracle's keeper scripts for The Keep3r Network",
   "keywords": [
     "keep3r",

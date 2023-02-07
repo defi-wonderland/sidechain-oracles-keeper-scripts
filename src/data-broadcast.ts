@@ -1,4 +1,4 @@
-import {getGoerliSdk} from '@dethcrypto/eth-sdk-client';
+import {getMainnetSdk} from '@dethcrypto/eth-sdk-client';
 import type {TransactionRequest} from '@ethersproject/abstract-provider';
 import type {Contract, Event} from 'ethers';
 import {providers, Wallet} from 'ethers';
@@ -24,7 +24,7 @@ const provider = new providers.WebSocketProvider(getEnvVariable('RPC_WSS_URI'));
 const txSigner = new Wallet(getEnvVariable('TX_SIGNER_PRIVATE_KEY'), provider);
 const bundleSigner = new Wallet(getEnvVariable('BUNDLE_SIGNER_PRIVATE_KEY'), provider);
 
-const {dataFeedJob: job, dataFeed} = getGoerliSdk(txSigner);
+const {dataFeedJob: job, dataFeed} = getMainnetSdk(txSigner);
 
 // Flag to track if there's a transaction in progress. Pool salt + pool nonce => status
 const txInProgress: Record<string, boolean> = {};
@@ -51,7 +51,7 @@ export async function initialize(): Promise<void> {
   console.info('Reading PoolObserved events since block', queryBlock);
 
   await Promise.all(
-    queryResults.map(async (event) => {
+    queryResults.map(async (event: Event) => {
       const {poolSalt, poolNonce, observationsData} = parseEvent(event);
       await Promise.all(
         SUPPORTED_CHAIN_IDS.map(async (chainId) => {

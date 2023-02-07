@@ -1,6 +1,6 @@
 {
   "name": "@defi-wonderland/sidechain-oracle-keeper-scripts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Sidechain Oracle's keeper scripts for The Keep3r Network",
   "keywords": [
     "keep3r",
@@ -17,7 +17,8 @@
   "private": true,
   "scripts": {
     "postinstall": "eth-sdk",
-    "start:data-fetch": "ts-node src/data-fetch.ts",
+    "start:data-time-fetch": "ts-node src/data-time-fetch.ts",
+    "start:data-twap-fetch": "ts-node src/data-twap-fetch.ts",
     "start:data-broadcast": "ts-node src/data-broadcast.ts",
     "build": "eth-sdk && tsc",
     "prod:data-time-fetch": "node dist/data-time-fetch.js",

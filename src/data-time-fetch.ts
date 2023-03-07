@@ -43,7 +43,12 @@ export async function run(): Promise<void> {
     const WHITELISTED_POOL_SALTS = await getAllWhitelistedSalts();
     await Promise.all(
       WHITELISTED_POOL_SALTS.map(async (poolSalt) => {
-        await flashbotBroadcastor.tryToWorkOnFlashbots(job, WORK_METHOD, [poolSalt, triggerReason], block);
+        await flashbotBroadcastor.tryToWorkOnFlashbots({
+          jobContract: job,
+          workMethod: WORK_METHOD,
+          workArguments: [poolSalt, triggerReason],
+          block,
+        });
       }),
     );
   });

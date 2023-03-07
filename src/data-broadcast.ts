@@ -57,7 +57,12 @@ export async function initialize(): Promise<void> {
       const block = await provider.getBlock('latest');
       await Promise.all(
         SUPPORTED_CHAIN_IDS.map(async (chainId) => {
-          return flashbotBroadcastor.tryToWorkOnFlashbots(job, WORK_METHOD, [poolSalt, poolNonce, chainId, observationsData], block);
+          await flashbotBroadcastor.tryToWorkOnFlashbots({
+            jobContract: job,
+            workMethod: WORK_METHOD,
+            workArguments: [chainId, poolSalt, poolNonce, observationsData],
+            block,
+          });
         }),
       );
     }),
@@ -97,7 +102,12 @@ export async function run(): Promise<void> {
     console.info(`Data fetch`, {poolSalt, poolNonce, observationsData});
     await Promise.all(
       SUPPORTED_CHAIN_IDS.map(async (chainId) => {
-        return flashbotBroadcastor.tryToWorkOnFlashbots(job, WORK_METHOD, [poolSalt, poolNonce, chainId, observationsData], block);
+        await flashbotBroadcastor.tryToWorkOnFlashbots({
+          jobContract: job,
+          workMethod: WORK_METHOD,
+          workArguments: [chainId, poolSalt, poolNonce, observationsData],
+          block,
+        });
       }),
     );
   });
